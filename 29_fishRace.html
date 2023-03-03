@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD Xhtml 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Fish Race Game</title>
+        <link rel="stylesheet" href="css/fishRace.css">
+
+        <script>
+            let timer = null;
+            let isEnd = false;
+
+            document.addEventListener("DOMContentLoaded", function(){
+                initPosition();
+                goFish();
+            });
+
+            function initPosition(){
+                let fishs = document.querySelectorAll(".fish");
+
+                for (let i = 0; i < fishs.length; i++) {
+                    let fish = fishs[i];
+                    fish.style.left = "0px";
+                    fish.style.top = (100 + (i * 150)) + "px";
+                }
+            }
+
+            function goFish(){
+                document.querySelector("#start").addEventListener("click", function(){
+                    let goalEndPosition = 550 - 120;
+                    
+                    if(timer != null){
+                        if(isEnd){
+                            timer = null;
+                            isEnd = false;
+                            initPosition();
+                        }
+                        return;
+                    }
+
+                    timer = setInterval(function(){
+                        let info = "";
+                        let fishs = document.querySelectorAll(".fish");
+                        let endLen = -1, endFish = null;
+
+                        // 물고기 이동
+                        for(let i=0; i<fishs.length; i++){
+                            element = fishs[i];
+                            let posX = Number(String(element.style.left).replace("px", ""));
+                            element.style.left = posX + Math.ceil(Math.random() * 30) + "px";
+
+                            // 물고기 정보 저장
+                            info += "fish" + i + ": " + element.style.left + "<br>";
+
+                            // 골인한 물고기 저장
+                            if(posX >= goalEndPosition && posX >= endLen){
+                                endLen = posX;
+                                endFish = i;
+                            }
+                        }
+                        if(endFish != null){
+                            endGame(endFish);
+                        }
+
+                        // 물고기 위치 출력
+                        document.querySelector("#info").innerHTML = info;
+
+                    }, 200);
+                });
+            }
+
+            function endGame(winNum){
+                isEnd = true;
+                clearInterval(timer);
+                alert("게임 끝! " + (winNum + 1) + "번 물고기 우승!");
+            }
+
+    </script>
+    </head>
+    <body>
+
+        <div id="panel">
+            <div id="bar"></div>
+
+            <div class="fish">
+                <img src="img/fish.png">1번
+            </div>
+
+            <div class="fish">
+                <img src="img/fish.png">2번
+            </div>
+
+            <div class="fish">
+                <img src="img/fish.png">3번
+            </div>
+
+        </div>
+
+        <div id="nav">
+            <button id="start">
+                게임 시작!
+            </button>
+        </div>
+
+        <div id="info">
+            기록 표시
+        </div>
+
+    </body>
+
+</html>

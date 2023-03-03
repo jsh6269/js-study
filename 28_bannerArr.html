@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD Xhtml 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title></title>
+        <link rel="stylesheet" href="css/bannerArr.css">
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function(){
+                let currentIndex = 1;
+                let banner = document.querySelector(".banner");
+                let imgList = ["logo_01.jpg", "logo_02.jpg", "logo_03.jpg", "logo_04.jpg", "logo_05.jpg", "logo_06.jpg", "logo_07.jpg", "logo_08.jpg"]
+
+                setInterval(function() {
+                    let imgSel = imgList[currentIndex++];
+                    currentIndex %= imgList.length;
+                    document.querySelector("#banner1").setAttribute("src", "img/" + imgSel);
+
+                }, 1000);
+            });
+        </script>
+
+    </head>
+
+    <body>
+        <img src="img/logo_01.jpg" class="banner" id="banner1">
+    </body>
+</html>
