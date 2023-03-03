@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        let a = window.prompt("나이 입력");
+        let desc = a + "살입니다.<br><br>"
+        document.write(desc);
+
+        document.addEventListener("DOMContentLoaded", function(){
+            document.querySelector("#confirm").addEventListener("click", function(){
+                let val = document.querySelector("#input").value;
+                document.querySelector("#textLine").innerHTML += (val + '<br>');
+            });
+        });
+
+    </script>
+    <input type="text" id="input"> <button id="confirm">확인</button>
+    <p id="textLine"></p>
+</html>
+

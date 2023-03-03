@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/trimComma.css">
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            let input = document.querySelector("#input");
+            let output = document.querySelector("#output");
+
+            document.querySelector("#confirm").addEventListener("click", function(){
+                let value = input.value;
+                let result = won(value);
+                output.innerHTML = value + " ==> " + result;
+            });
+        });
+
+        function won(value){
+            // 맨 앞과 맨 뒤의 연속된 _만 제거.
+            // 문법상 _자리에 다른 문자를 넣으면 해당 문자를 제거함
+            value =  value.replace(/^_+|_+$/g, "");
+            let iterNum = Math.floor(value.length / 3);
+            let originLen = value.length;
+
+            if(value.length % 3 == 0){
+                iterNum--;
+            }
+            
+            for(let i=1; i<=iterNum; i++){
+                let front = value.substring(0, originLen-3*i);
+                let back = value.substring(originLen-3*i, value.length);
+                value = front + "," + back;
+            }
+            return value;
+        }
+    </script>
+</head> 
+
+<body>
+    <div>
+           <input type="text" id="input"> <button id="confirm">확인</button>
+    </div>   
+
+    <div id="output">여기에 실행 결과가 출력됩니다.</div>
+</body>
+
+
+</html>
+
+

@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD Xhtml 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <link rel="stylesheet" href="css/clock.css">
+        <script>
+            let clockItem = null;
+            document.addEventListener("DOMContentLoaded", function(){
+                clockItem = document.querySelector("#clock");
+                clock();
+            })
+
+            function clock() {
+                let start0 = (num) => String(num).padStart(2, '0');
+
+                setInterval(function(){
+                    let obj = new Date();
+                    let str = start0(obj.getHours()) + ":" + start0(obj.getMinutes()) + ":" + start0(obj.getSeconds());
+                    clockItem.innerHTML = str;
+                });
+            }
+        </script>
+
+    </head>
+
+    <body>
+        <div id="clock">
+            00:00.00
+        </div>
+    </body>
+
+</html>
