@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        document.addEventListener('DOMContentLoaded', cntInit);
+
+        function cntInit(){
+            let btnStart = document.querySelector("#btnStart");
+            btnStart.addEventListener('click', function(event){
+                // start()는 한 번만 실행되고 종료되지만 그 과정에서 setInterval()이 호출된다.
+                // start()가 종료되었어도 innerFunction인 setInterval이 변수 cnt를 참조하므로 이 변수는 사라지지 않고 값을 유지한다.
+                start();
+                document.write("타이머 시작!<br>");
+            });
+
+            function start(){
+                let cnt = 0;
+                setInterval(function(){
+                    document.write((++cnt) + '<br>');
+                }, 1000);
+            }
+        };
+    </script>
+    <button id="btnStart">시작</button>
+</html>

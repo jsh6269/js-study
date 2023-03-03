@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/fishGame.css">
+    <style>
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            let count = 0;
+            let score = document.querySelector("#score");
+            let onGoing = true;
+            
+            document.querySelector("#fish").addEventListener("click", function(){
+                if(onGoing){
+                    count++;
+                    score.innerHTML = count;
+                }
+            });
+
+            setTimeout(function(){
+                onGoing = false;
+                alert("게임 결과: " + count +"점 입니다.");
+            }, 5000);
+        })
+
+    </script>
+</head>
+<body>
+    <div>현재점수 <span id="score">0</span></div>
+    <div class="panel">
+        <img src="img/fish1.png" id="fish">
+
+    </div>
+</body>
+
+</html>
+
+

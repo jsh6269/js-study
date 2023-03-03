@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD Xhtml 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>물고기</title>
+    <link rel="stylesheet" href="css/fishMovement.css">
+
+    <script>
+        let timer = null;
+        let step = 50;
+
+        document.addEventListener("DOMContentLoaded", initEvent);
+        
+        function initEvent(){
+            document.querySelector("#btnStart").addEventListener("click", start);
+            
+            document.querySelector("#btnStop").addEventListener("click", stop);
+        }
+
+        function start(){
+            if(timer == null){
+                    timer = setInterval(goFish, 100);
+                }
+        }
+
+        function stop(){
+            clearInterval(timer);
+                timer = null;
+        }
+
+        function goFish(){
+                let fish = document.querySelector("#fish");
+                let x = Number(fish.style.left.slice(0, -2)) + step;
+
+                if(x >= 430){
+                    x = 430;
+                    fish.setAttribute("src", "img/fish2.png");
+                    step = -50;
+                }
+
+                if(x < 50){
+                    x = 50;
+                    fish.setAttribute("src", "img/fish1.png")
+                    step = 50;
+                }
+                fish.style.left = x + "px";
+        }
+	</script>
+</head>
+
+<body>	
+    <div> 		
+        <div id="panel">
+            <img src="img/fish1.png" id="fish">
+            <div id="bar"> </div>								
+        </div>
+        
+        <div id="nav">
+            <button id="btnStart">시작</button>
+            <button id="btnStop">멈춤</button>
+        </div>
+    </div>
+</body>
+
+</html>

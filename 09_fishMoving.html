@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="css/fish.css">
+    </head>
+    
+    <body>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                let fish = document.querySelector("#fish");
+                let btnStart = document.querySelector("#btnStart");
+                btnStart.addEventListener('click', function(event){
+                    fish.animate({
+                        left:"430px"
+                    }, 1000);
+                });
+            });
+        </script>
+
+        <div id="panel">
+            <div id="bar"></div>
+            <img src="img/fish.png" id="fish">
+        </div>
+    
+        <div id="nav">
+            <button id="btnStart">물고기 움직이기</button>
+        </div>
+    </body>
+</html>
+
+
+<!-- <!DOCTYPE HTML>
+<html>
+    <head>
+        <script src="jquery-3.6.3.js"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="css/fish.css">
+    </head>
+    
+    <body>
+        <script>
+            $(document).ready(function(){
+                var $fish = $("#fish");
+                $("#btnStart").click(function(){
+                    $fish.animate({
+                        left:"430px"
+                    }, 1000)
+                });
+            })
+        </script>
+
+        <div id="panel">
+            <div id="bar"></div>
+            <img src="img/fish.png" id="fish">
+        </div>
+    
+        <div id="nav">
+            <button id="btnStart">물고기 움직이기</button>
+        </div>
+    </body>
+</html> -->

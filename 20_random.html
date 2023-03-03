@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            document.querySelector("#btnNum").addEventListener("click", function(){
+                document.querySelector("#num").innerHTML = Math.floor(Math.random() * 100);
+            });
+            setInterval(function(){
+                document.querySelector("#num2").innerHTML = Math.floor(Math.random() * 100);
+            }, 100);
+        });
+    </script>
+    <h1 id="num">0</h1>
+    <button id="btnNum">생성</button>
+    <h1 id="num2">0</h1>
+</html>

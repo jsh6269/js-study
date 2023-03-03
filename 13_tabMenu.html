@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+    <link rel="stylesheet" href="css/tabMenu.css">
+
+	<script>
+        document.addEventListener('DOMContentLoaded', function(){
+            tabMenu("#tabMenu1", onSelectItem);
+            tabMenu("#tabMenu2", onSelectItem);
+        });
+
+        function tabMenu(selector, callback){
+            let tabMenu = null;
+            let menuItems = null;
+            let selectedItem = null;
+
+            function init(){
+                tabMenu = document.querySelector(selector);
+                menuItems = tabMenu.querySelectorAll("li");
+            }
+
+            function initEvent(){
+                menuItems.forEach(element => {
+                    element.addEventListener('click', function(event){
+                        setSelectItem(element);
+                    });
+                });
+            }
+
+            function setSelectItem(item){
+                if(selectedItem){
+                    selectedItem.classList.remove('select');
+                }
+                selectedItem = item;
+                selectedItem.classList.add('select');
+
+                if(callback != null){
+                    callback(selector, Array.from(menuItems).indexOf(item));
+                }
+            }
+
+            init();
+            initEvent();
+        }
+
+        function onSelectItem(mod, num){
+                document.querySelector("#info").innerHTML += (mod + ": " + num + "번째 요소를 클릭했습니다.<br>");
+        }
+
+    </script>
+
+</head>
+	
+<body>
+    <p>첫 번째 탭메뉴</p>	    
+    <ul class="tab-menu" id="tabMenu1">
+        <li class="menuitem1">google</li>
+        <li class="menuitem2">facebook</li>
+        <li class="menuitem3">pinterest</li>
+        <li class="menuitem4">twitter</li>
+        <li class="menuitem5">airbnb</li>
+        <li class="menuitem6">path</li>
+    </ul>		
+    <p>두 번째 탭메뉴</p>
+    <ul class="tab-menu" id="tabMenu2">
+        <li class="menuitem1">google</li>
+        <li class="menuitem2">facebook</li>
+        <li class="menuitem3">pinterest</li>
+        <li class="menuitem4">twitter</li>
+        <li class="menuitem5">airbnb</li>
+        <li class="menuitem6">path</li>
+    </ul>
+    <div>------------------로그------------------<br><br><span id="info"></span></div>
+</body>
+</html>
+
+
+<!-- // function tabMenu(selector){
+    // 	var $tabMenu = null;
+    // 	var $menuItems = null;
+    // 	// 선택한 탭메뉴를 저장할 변수
+    // 	var $selectMenuItem =null;
+
+    // 	// 요소 초기화, tabMenu() 함수 내부에서 사용할 공통 데이터는
+    // 	// 모두 이곳에 작성해주세요.
+    // 	function init(selector){
+    // 		$tabMenu = $(selector);
+    // 		$menuItems =$tabMenu.find("li");
+    // 	}
+
+    // 	// 이벤트 등록은 모두 이곳에 작성해주세요.
+    // 	function initEvent(){
+    // 		// 메뉴 항목에 클릭 이벤트 등록
+    // 		$menuItems.click(function(){
+    // 			alert(this.toString());
+    // 			setSelectItem($(this));
+    // 		});
+    // 	}
+
+    // 	// 선택 메뉴 아이템 만들기
+    // 	function setSelectItem($item){
+
+    // 		// 기존 선택 메뉴 항목이 있으면 비선택 상태로 만들기
+    // 		if($selectMenuItem){
+    // 			$selectMenuItem.removeClass("select");
+    // 		}
+    // 		// 클릭한 메뉴 항목을 신규 선택 메뉴 항목으로 저장
+    // 		$selectMenuItem = $item;
+    // 		// 선택 상태로 만들기
+    // 		$selectMenuItem.addClass("select");
+    // 	}
+
+    // 	init(selector);
+    // 	initEvent();
+    // } -->

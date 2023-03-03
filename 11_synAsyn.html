@@ -1,0 +1,11 @@
+<script>
+    alert("Hello");
+    document.write("alert가 끝나야 이 문장이 출력되는 synchronous(동기)한 상황<br>");
+
+    let count = 1;
+    setInterval(function(){
+        document.write("count = "+(count++)+"<br>");
+    }, 5000);
+    document.write("setInterval이 끝나지 않아도 이 문장이 출력되는 asynchronous(비동기)한 상황<br>");
+
+</script>

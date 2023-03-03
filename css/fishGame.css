@@ -1,0 +1,16 @@
+.info {
+    font-size: 14pt;
+}
+
+.panel {
+    width: 600px;
+    height: 400px;
+    position: relative;
+    border: 2px solid #000;
+}
+
+.panel #fish {
+    position: absolute;
+    left: 250px;
+    top: 150px;
+}

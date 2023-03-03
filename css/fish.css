@@ -1,0 +1,16 @@
+#panel {
+    width: 600px;
+    height: 300px;
+    position: relative;
+}
+
+#fish {
+    position: absolute;
+    left: 50px;
+    top: 120px;
+}
+
+#nav {
+    text-align: center;
+    width: 600px;
+}

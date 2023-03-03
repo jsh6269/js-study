@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        let num = 0;
+        let timer = null;
+
+        document.addEventListener("DOMContentLoaded", init);
+        
+        function init(){
+            document.querySelector("#btnStart").addEventListener('click', function(){
+                if(timer == null){
+                    timer = setInterval(() => {
+                        num++;
+                        document.querySelector("#number").innerHTML = num;
+                    }, 0.01);            
+                }
+            });
+
+            document.querySelector("#btnStop").addEventListener("click", () => {
+                if(timer != null){
+                    clearInterval(timer);
+                    timer = null;
+                }
+            });
+        }
+    </script>
+    <h1 id="number" style="font-size: 60px; margin-left: 60px; color:brown">0</h1>
+    <button id="btnStart" style="margin-left:60px;">시작</button>
+    <button id="btnStop" style="margin-left:60px;">정지</button>
+</html>

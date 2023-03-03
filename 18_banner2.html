@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD Xhtml 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>배너</title>
+    <link rel="stylesheet" href="css/banner2.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            initBanner("#banner1", 1500);
+            initBanner("#banner2", 500);
+        });
+
+        function initBanner(selector, timeInter){
+            let totNum = 8;
+            let bannerItem = document.querySelector(selector);
+    
+            setInterval(function(){
+                let number = Number(bannerItem.getAttribute("src").slice(-6, -4));
+                number = String(number % 8 + 1);
+                bannerItem.setAttribute("src", "img/logo_" + number.padStart(2, '0') + ".jpg");
+            }, timeInter);
+        }
+    </script>
+</head>
+
+<body>
+    <img src="img/logo_01.jpg" class="banner" id="banner1">
+    <img src="img/logo_02.jpg" class="banner" id="banner2">
+</body>
+</html>
+

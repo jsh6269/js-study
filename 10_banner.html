@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="css/remarks.css">
+    <script type="text/javascript"  src="jquery-3.6.3.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', init);
+
+        function init(){
+            const images = document.querySelectorAll("#container1 img");
+            showImage(2, 200, 150);
+
+            let btnStart = document.querySelector("#btnStart");
+            btnStart.addEventListener('click', function(event){
+                    showImage(3, 150, 150);
+            });
+
+        }
+
+        function showImage(col, width, height){
+            const images = document.querySelectorAll("#container1 img");
+            let totNum = images.length;
+            for(let i=0; i<totNum; i++){
+                let img = images.item(i);
+                let newX = 100 + (i % col) * width;
+                let newY = 100 + parseInt(i / col) * height;
+                
+                img.style.top = newY + 'px';
+                img.style.left = newX + 'px';
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <button id="btnStart">시작</button>
+    <div class="image-container" id="container1">
+        <img src="banners/1.png" >
+        <img src="banners/2.png" >
+        <img src="banners/3.png" >
+        <img src="banners/4.png" >
+        <img src="banners/5.png" >
+        <img src="banners/6.png" >
+        <img src="banners/7.png" >
+        <img src="banners/8.png" >
+    </div>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="css/remarks.css">
+    <script type="text/javascript"  src="jquery-3.6.3.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            init();
+        });
+        function init(){
+            $images = $("#container1 img");
+            showImage(2, 200, 200);
+            $("#btnStart").click(function(){
+                showImage(3, 150, 150);
+            });
+        }
+
+        function showImage(col, width, height){
+            let totNum = $images.length;
+            for(let i=0; i<totNum; i++){
+                let $img = $images.eq(i);
+                let newX = 100 + (i % col) * width;
+                let newY = 100 + parseInt(i / col) * height;
+
+                $img.css({
+                    left: newX, top: newY
+                });
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <button id="btnStart">시작</button>
+    <div class="image-container" id="container1">
+        <img src="banners/1.png" >
+        <img src="banners/2.png" >
+        <img src="banners/3.png" >
+        <img src="banners/4.png" >
+        <img src="banners/5.png" >
+        <img src="banners/6.png" >
+        <img src="banners/7.png" >
+        <img src="banners/8.png" >
+    </div>
+</body>
+</html> -->

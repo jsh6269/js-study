@@ -1,0 +1,32 @@
+body{
+    font-size:9pt;
+
+}
+#panel{
+    width:600px;
+    height:300px;
+    border:1px solid #999;
+    position:relative;
+}
+
+#bar{
+    position:absolute;
+    left:50px;
+    top:190px;
+    width:500px;
+    height:20px;
+    
+    background:#F30;
+}
+
+#fish{
+    position:absolute;
+    left:50px;
+    top:120px;		
+}
+
+#nav{
+    margin-top:20px;
+    text-align:center;
+    width:600px;
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        let num = 0;
+        let yellList = ['잼', '석', '은 ', '신', '이', '야'];
+        document.addEventListener("DOMContentLoaded", init);
+
+        function init(){
+            document.querySelector("#jamsuk").addEventListener('click', () => {
+                if(num < 6){
+                    document.querySelector("#yell").innerHTML += yellList[num];
+                    num++
+                }
+                else if(num==6){
+                    setInterval(function(){
+                        document.querySelector("#scold").innerHTML += "&nbsp잼석은 신이야!<br>";
+                    }, 50);
+                    num++;
+                }
+            });
+        }
+    </script>
+    <button id="jamsuk" style="margin-top: 20px; margin-left: 30px;">claim</button>
+    <h1 id="yell" style="margin-top: 20px; margin-left: 30px; font-size: 30; "></h1>
+    <h2 id="scold" style="margin-top: 20px; margin-left: 30px; font-size: 15;"></h2>
+</html>
